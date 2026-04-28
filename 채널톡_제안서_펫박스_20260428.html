@@ -251,235 +251,169 @@
   </div>
 </div></section>
 
-<!-- ═══ PAGE 3: SOLUTION — 해피톡 vs 채널톡 + 태스크 기능 ═══ -->
+<!-- ═══ PAGE 3: TASK — 핵심 기능 ═══ -->
 <section><div class="section-inner">
-  <div class="label">Solution · 해피톡 vs 채널톡</div>
-  <h2 class="title">해피톡은 <span class="hl-red">연결</span>만 합니다.<br>채널톡은 <span class="hl">해결</span>까지 합니다.</h2>
-  <p class="sub">단순 채팅 연결을 넘어, 채널톡 ALF가 반복 문의의 50%를 자동으로 처리합니다. 핵심은 <strong style="color:var(--accent);">태스크(Task)</strong> 기능입니다.</p>
+  <div class="label">Core Feature · 채널톡 태스크(Task)</div>
+  <h2 class="title">답변만 하는 AI는 많습니다.<br><span class="hl">직접 처리까지 하는 AI는</span><br><span class="hl">채널톡 태스크뿐입니다.</span></h2>
+  <p class="sub">태스크는 고객 문의를 받아 <strong style="color:var(--brand);">접수 → 확인 → 처리 → 완료</strong>까지 상담사 없이 끝냅니다. 이 기능 하나가 해결률을 <strong style="color:var(--accent);">80%</strong>로 끌어올립니다.</p>
 
-  <div class="compare" style="margin-top:24px;">
-    <div class="compare-row">
-      <div class="compare-lbl" style="color:var(--text-3);">해피톡 (현재)</div>
-      <div class="bar">
-        <div style="width:100%;background:var(--red);opacity:0.75;color:#fff;">사람 100% — 모든 문의를 상담사가 직접 처리 (자동화 없음)</div>
-      </div>
-      <div class="bar-hint">채팅 창구는 있지만, AI 자동 해결 기능 없음 — 상담사 5명이 40건+ 수동 처리</div>
-    </div>
-    <div class="compare-row highlight">
-      <div class="compare-lbl" style="color:var(--brand-light);font-size:1.5rem;">채널톡 ALF 도입 후</div>
-      <div class="bar bar-big">
-        <div style="width:50%;background:var(--brand);color:#fff;flex-direction:column;gap:3px;">
-          <span style="font-size:1.4rem;font-weight:800;">ALF 50%</span>
-          <span style="font-size:1.05rem;opacity:0.85;">태스크로 자동 완결</span>
-        </div>
-        <div style="width:50%;background:rgba(49,165,82,0.65);color:#fff;flex-direction:column;gap:3px;">
-          <span style="font-size:1.4rem;font-weight:800;">사람 50%</span>
-          <span style="font-size:1.05rem;opacity:0.85;">고관여 업무 집중</span>
-        </div>
-      </div>
-      <div class="bar-hint" style="color:var(--text-2);font-size:1.4rem;">배송·교환·환불은 ALF가, 상담사는 VIP 케어·구매 유도에만 집중</div>
-    </div>
-  </div>
+  <!-- 핵심 비교: 해피톡 vs 채널톡 태스크 -->
+  <div style="margin-top:36px;display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:start;">
 
-  <!-- 태스크 심층 설명 -->
-  <div style="margin-top:28px;background:linear-gradient(135deg,rgba(124,92,252,0.07) 0%,var(--brand-dim) 100%);border:2px solid rgba(124,92,252,0.25);border-radius:16px;padding:32px 36px;">
-
-    <!-- 헤더 -->
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
-      <div>
-        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(124,92,252,0.12);border:1px solid rgba(124,92,252,0.3);border-radius:20px;padding:5px 16px;margin-bottom:10px;">
-          <span style="font-size:1.1rem;font-weight:800;color:var(--accent);letter-spacing:0.06em;text-transform:uppercase;">핵심 기능</span>
-          <span style="font-size:1.3rem;font-weight:800;color:var(--accent);">태스크 (Task)</span>
+    <!-- 해피톡 -->
+    <div style="background:rgba(233,78,88,0.04);border:1.5px solid rgba(233,78,88,0.2);border-radius:16px;padding:32px;">
+      <div style="font-size:1.2rem;font-weight:700;color:var(--red);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px;">해피톡 (현재)</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(233,78,88,0.06);border-radius:10px;">
+          <span style="font-size:1.6rem;">💬</span>
+          <span style="font-size:1.4rem;color:var(--text-2);">"교환하고 싶어요"</span>
         </div>
-        <div style="font-size:2.2rem;font-weight:800;color:var(--text);line-height:1.25;">단순 답변을 넘어,<br><span style="color:var(--accent);">대화형으로 실제 업무를 처리합니다</span></div>
+        <div style="text-align:center;font-size:1.4rem;color:var(--text-3);">↓</div>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(233,78,88,0.06);border-radius:10px;">
+          <span style="font-size:1.6rem;">👤</span>
+          <span style="font-size:1.4rem;color:var(--text-2);">상담사가 주문 확인</span>
+        </div>
+        <div style="text-align:center;font-size:1.4rem;color:var(--text-3);">↓</div>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(233,78,88,0.06);border-radius:10px;">
+          <span style="font-size:1.6rem;">👤</span>
+          <span style="font-size:1.4rem;color:var(--text-2);">상담사가 교환 접수</span>
+        </div>
+        <div style="text-align:center;font-size:1.4rem;color:var(--text-3);">↓</div>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(233,78,88,0.06);border-radius:10px;">
+          <span style="font-size:1.6rem;">👤</span>
+          <span style="font-size:1.4rem;color:var(--text-2);">상담사가 완료 안내</span>
+        </div>
       </div>
-      <div style="text-align:center;background:rgba(124,92,252,0.10);border:1px solid rgba(124,92,252,0.25);border-radius:12px;padding:16px 28px;">
-        <div style="font-size:4rem;font-weight:800;color:var(--accent);line-height:1;">80%</div>
-        <div style="font-size:1.2rem;color:var(--text-2);margin-top:4px;">태스크 도입 시<br>목표 해결률</div>
+      <div style="margin-top:20px;padding:14px 16px;background:rgba(233,78,88,0.08);border-radius:10px;text-align:center;">
+        <span style="font-size:1.6rem;font-weight:800;color:var(--red);">상담사 4번 개입 필요</span>
       </div>
     </div>
 
-    <!-- ALF 3단계 -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:24px;">
-      <div style="background:rgba(0,0,0,0.04);border-radius:10px;padding:18px 20px;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-          <span style="width:24px;height:24px;border-radius:50%;background:rgba(0,0,0,0.15);display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:var(--text-2);">1</span>
-          <span style="font-size:1.2rem;font-weight:700;color:var(--text-2);">규칙 (Rules)</span>
-        </div>
-        <div style="font-size:1.25rem;color:var(--text-2);line-height:1.5;">AI 상담사의 톤·역할 설정<br>브랜드에 맞는 응대 기준</div>
-      </div>
-      <div style="background:rgba(0,0,0,0.04);border-radius:10px;padding:18px 20px;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-          <span style="width:24px;height:24px;border-radius:50%;background:rgba(0,0,0,0.15);display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:var(--text-2);">2</span>
-          <span style="font-size:1.2rem;font-weight:700;color:var(--text-2);">지식 (Knowledge)</span>
-        </div>
-        <div style="font-size:1.25rem;color:var(--text-2);line-height:1.5;">상품 DB·FAQ·배송정책 등<br>AI가 참고할 정보 업로드</div>
-      </div>
-      <div style="background:var(--brand-dim);border:1px solid var(--border-accent);border-radius:10px;padding:18px 20px;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-          <span style="width:24px;height:24px;border-radius:50%;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#fff;">3</span>
-          <span style="font-size:1.2rem;font-weight:800;color:var(--brand-light);">태스크 (Task) ★</span>
-        </div>
-        <div style="font-size:1.25rem;color:var(--text-2);line-height:1.5;"><strong style="color:var(--brand-light);">상담 처리 자동화 단계</strong><br>답변이 아닌 실제 처리까지</div>
-      </div>
+    <!-- VS -->
+    <div style="display:flex;align-items:center;justify-content:center;padding-top:80px;">
+      <div style="width:48px;height:48px;border-radius:50%;background:var(--bg-card2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800;color:var(--text-3);">VS</div>
     </div>
 
-    <!-- 태스크 플로우: 펫박스 교환/환불 예시 -->
-    <div style="background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:20px 24px;">
-      <div style="font-size:1.2rem;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;">예시: 펫박스 교환·환불 요청 처리</div>
-      <div style="display:flex;align-items:center;gap:0;overflow-x:auto;">
-
-        <!-- 트리거 -->
-        <div style="flex-shrink:0;background:rgba(124,92,252,0.08);border:1.5px solid rgba(124,92,252,0.3);border-radius:10px;padding:14px 16px;min-width:130px;">
-          <div style="font-size:1rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">🔥 트리거</div>
-          <div style="font-size:1.2rem;font-weight:800;color:var(--text);margin-bottom:4px;">교환·환불 요청</div>
-          <div style="font-size:1.05rem;color:var(--text-2);">"교환하고 싶어요"<br>"환불 신청해요"</div>
-        </div>
-
-        <div style="padding:0 8px;font-size:1.8rem;color:var(--text-3);flex-shrink:0;">→</div>
-
-        <!-- A단계 -->
-        <div style="flex-shrink:0;background:#f8f9fa;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:14px 16px;min-width:130px;">
-          <div style="font-size:1rem;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;">✦ A단계</div>
-          <div style="font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:4px;">주문 조회</div>
-          <div style="font-size:1.05rem;color:var(--text-2);">고객 주문 목록<br>자동 확인</div>
-        </div>
-
-        <div style="padding:0 8px;font-size:1.8rem;color:var(--text-3);flex-shrink:0;">→</div>
-
-        <!-- B단계 -->
-        <div style="flex-shrink:0;background:#f8f9fa;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:14px 16px;min-width:130px;">
-          <div style="font-size:1rem;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;">✦ B단계</div>
-          <div style="font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:4px;">주문 특정</div>
-          <div style="font-size:1.05rem;color:var(--text-2);">어떤 상품인지<br>대화로 확인</div>
-        </div>
-
-        <div style="padding:0 8px;font-size:1.8rem;color:var(--text-3);flex-shrink:0;">→</div>
-
-        <!-- C단계 -->
-        <div style="flex-shrink:0;background:#f8f9fa;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:14px 16px;min-width:130px;">
-          <div style="font-size:1rem;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;">✦ C단계</div>
-          <div style="font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:4px;">접수 처리</div>
-          <div style="font-size:1.05rem;color:var(--text-2);">쇼핑몰 시스템에<br>자동 접수</div>
-        </div>
-
-        <div style="padding:0 8px;font-size:1.8rem;color:var(--text-3);flex-shrink:0;">→</div>
-
-        <!-- 완료 -->
-        <div style="flex-shrink:0;background:rgba(74,222,128,0.08);border:1.5px solid rgba(74,222,128,0.3);border-radius:10px;padding:14px 16px;min-width:130px;">
-          <div style="font-size:1rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">✅ 완료</div>
-          <div style="font-size:1.2rem;font-weight:800;color:var(--text);margin-bottom:4px;">자동 안내</div>
-          <div style="font-size:1.05rem;color:var(--text-2);">완료 메시지<br>고객에게 발송</div>
-        </div>
-
+    <!-- 채널톡 태스크 -->
+    <div style="background:linear-gradient(135deg,var(--brand-dim),rgba(124,92,252,0.06));border:2px solid var(--brand);border-radius:16px;padding:32px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+        <div style="font-size:1.2rem;font-weight:700;color:var(--brand-light);letter-spacing:0.08em;text-transform:uppercase;">채널톡 태스크</div>
+        <div style="background:rgba(124,92,252,0.12);border:1px solid rgba(124,92,252,0.3);border-radius:20px;padding:4px 14px;font-size:1.2rem;font-weight:800;color:var(--accent);">해결률 목표 80%</div>
       </div>
-      <div style="margin-top:14px;padding:12px 16px;background:rgba(124,92,252,0.06);border-radius:8px;font-size:1.3rem;color:var(--text-2);">
-        💡 <strong style="color:var(--text);">상담사 개입 없이</strong> 고객이 "교환하고 싶어요" 한 마디로 접수부터 완료 안내까지 자동 처리됩니다.
-        배송 조회, 주문 취소, 사료 재고 확인 등 <strong style="color:var(--text);">반복되는 처리 업무 전체에 적용 가능</strong>합니다.
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,0.7);border-radius:10px;border:1px solid var(--border);">
+          <span style="font-size:1.6rem;">💬</span>
+          <span style="font-size:1.4rem;color:var(--text-2);">"교환하고 싶어요"</span>
+        </div>
+        <div style="text-align:center;font-size:1.4rem;color:var(--brand);">↓</div>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--brand-dim);border-radius:10px;border:1px solid var(--border-accent);">
+          <span style="font-size:1.6rem;">🤖</span>
+          <span style="font-size:1.4rem;color:var(--text);font-weight:600;">ALF가 주문 자동 조회</span>
+        </div>
+        <div style="text-align:center;font-size:1.4rem;color:var(--brand);">↓</div>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--brand-dim);border-radius:10px;border:1px solid var(--border-accent);">
+          <span style="font-size:1.6rem;">🤖</span>
+          <span style="font-size:1.4rem;color:var(--text);font-weight:600;">ALF가 교환 자동 접수</span>
+        </div>
+        <div style="text-align:center;font-size:1.4rem;color:var(--brand);">↓</div>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--brand-dim);border-radius:10px;border:1px solid var(--border-accent);">
+          <span style="font-size:1.6rem;">🤖</span>
+          <span style="font-size:1.4rem;color:var(--text);font-weight:600;">ALF가 완료 안내 발송</span>
+        </div>
+      </div>
+      <div style="margin-top:20px;padding:14px 16px;background:var(--brand);border-radius:10px;text-align:center;">
+        <span style="font-size:1.6rem;font-weight:800;color:#fff;">상담사 개입 0번 &mdash; 완전 자동 처리</span>
       </div>
     </div>
 
   </div>
+
+  <!-- 태스크 적용 가능 문의 -->
+  <div style="margin-top:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px 28px;">
+    <div style="font-size:1.2rem;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">펫박스에 바로 적용 가능한 태스크</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <span style="background:var(--brand-dim);border:1px solid var(--border-accent);border-radius:8px;padding:8px 16px;font-size:1.35rem;font-weight:600;color:var(--brand-light);">📦 교환·환불 접수</span>
+      <span style="background:var(--brand-dim);border:1px solid var(--border-accent);border-radius:8px;padding:8px 16px;font-size:1.35rem;font-weight:600;color:var(--brand-light);">🚚 배송 조회</span>
+      <span style="background:var(--brand-dim);border:1px solid var(--border-accent);border-radius:8px;padding:8px 16px;font-size:1.35rem;font-weight:600;color:var(--brand-light);">📋 주문 취소</span>
+      <span style="background:var(--brand-dim);border:1px solid var(--border-accent);border-radius:8px;padding:8px 16px;font-size:1.35rem;font-weight:600;color:var(--brand-light);">🐾 사료·용품 재고 확인</span>
+      <span style="background:var(--brand-dim);border:1px solid var(--border-accent);border-radius:8px;padding:8px 16px;font-size:1.35rem;font-weight:600;color:var(--brand-light);">🎁 멤버십·포인트 안내</span>
+    </div>
+  </div>
+
 </div></section>
 
-<!-- ═══ PAGE 4: ROI — 인건비 절감 ═══ -->
+<!-- ═══ PAGE 4: ROI — 직관적 비용 비교 ═══ -->
 <section><div class="section-inner">
-  <div class="label">Expected ROI · 펫박스가 절약하는 비용</div>
-  <h2 class="title">월 <span class="hl">600만 원</span>을<br><span class="hl-green">채널톡이 만들어 드립니다</span></h2>
-  <p class="sub">CS 상담사 2명의 인건비가 그대로 절감됩니다. 채널톡 비용은 그 6분의 1입니다.</p>
+  <div class="label">Cost Comparison · 비용이 한눈에</div>
+  <h2 class="title">사람 월급 vs 채널톡 비용,<br><span class="hl">얼마나 차이 납니까?</span></h2>
+  <p class="sub">숫자를 보시면 바로 이해가 됩니다.</p>
 
-  <!-- 계산식 시각화 -->
-  <div style="margin-top:36px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:12px;">
+  <!-- 메인 비교 -->
+  <div style="margin-top:36px;display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,0.06);">
 
-    <!-- 현재 인건비 -->
-    <div style="background:rgba(233,78,88,0.05);border:1.5px solid rgba(233,78,88,0.25);border-radius:16px;padding:28px 24px;text-align:center;">
-      <div style="font-size:1.15rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;">현재 인건비 (반복 문의)</div>
-      <div style="font-size:1.3rem;color:var(--text-2);line-height:1.9;margin-bottom:12px;">
-        상담사 <strong style="color:var(--text);">5명</strong> × 월 <strong style="color:var(--text);">300만</strong><br>
-        반복 문의 담당 <strong style="color:var(--red);">2명 낭비</strong>
+    <!-- 왼쪽: 사람 -->
+    <div style="background:rgba(233,78,88,0.05);padding:48px 40px;text-align:center;">
+      <div style="font-size:1.3rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">👤 사람 상담사 2명</div>
+      <div style="font-size:1.5rem;color:var(--text-3);margin-bottom:20px;">반복 문의 처리 전담</div>
+      <!-- 시각적 바 -->
+      <div style="background:rgba(233,78,88,0.15);border-radius:12px;padding:36px 24px;margin-bottom:24px;">
+        <div style="font-size:1.4rem;color:var(--text-2);margin-bottom:8px;">월 급여</div>
+        <div style="font-size:7rem;font-weight:800;color:var(--red);letter-spacing:-0.04em;line-height:1;">600만</div>
+        <div style="font-size:2rem;color:var(--red);font-weight:600;">원 / 월</div>
       </div>
-      <div style="font-size:4rem;font-weight:800;color:var(--red);letter-spacing:-0.03em;line-height:1;">600만</div>
-      <div style="font-size:1.3rem;color:var(--text-3);margin-top:6px;">원 / 월 낭비</div>
-    </div>
-
-    <!-- 빼기 -->
-    <div style="text-align:center;flex-shrink:0;">
-      <div style="width:52px;height:52px;border-radius:50%;background:rgba(233,78,88,0.12);border:2px solid rgba(233,78,88,0.3);display:flex;align-items:center;justify-content:center;font-size:2.4rem;font-weight:800;color:var(--red);">−</div>
-      <div style="font-size:1.1rem;color:var(--text-3);margin-top:6px;white-space:nowrap;">AI 대체</div>
-    </div>
-
-    <!-- ALF 비용 -->
-    <div style="background:var(--brand-dim);border:1.5px solid var(--border-accent);border-radius:16px;padding:28px 24px;text-align:center;">
-      <div style="font-size:1.15rem;font-weight:700;color:var(--brand-light);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;">채널톡 ALF 비용</div>
-      <div style="font-size:1.3rem;color:var(--text-2);line-height:1.9;margin-bottom:12px;">
-        월 상담 <strong style="color:var(--text);">~2,000건</strong><br>
-        × <strong style="color:var(--text);">500원</strong>/건
-      </div>
-      <div style="font-size:4rem;font-weight:800;color:var(--brand);letter-spacing:-0.03em;line-height:1;">~100만</div>
-      <div style="font-size:1.3rem;color:var(--text-3);margin-top:6px;">원 / 월</div>
-      <div style="margin-top:10px;background:var(--brand-dim);border-radius:6px;padding:5px 10px;display:inline-block;font-size:1.1rem;font-weight:700;color:var(--brand-light);">사람 1,600원 → ALF 500원/건</div>
-    </div>
-
-    <!-- 이퀄 -->
-    <div style="text-align:center;flex-shrink:0;">
-      <div style="width:52px;height:52px;border-radius:50%;background:rgba(74,222,128,0.12);border:2px solid rgba(74,222,128,0.3);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;color:var(--green-light);">=</div>
-      <div style="font-size:1.1rem;color:var(--text-3);margin-top:6px;white-space:nowrap;">절감</div>
-    </div>
-
-    <!-- 절감액 -->
-    <div style="background:linear-gradient(135deg,rgba(74,222,128,0.10),rgba(74,222,128,0.04));border:2px solid rgba(74,222,128,0.3);border-radius:16px;padding:28px 24px;text-align:center;">
-      <div style="font-size:1.15rem;font-weight:700;color:var(--green-light);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;">월 순 절감액</div>
-      <div style="font-size:1.3rem;color:var(--text-2);line-height:1.9;margin-bottom:12px;">
-        <strong style="color:var(--red);">−600만</strong> + <strong style="color:var(--brand);">+100만</strong>
-      </div>
-      <div style="font-size:4rem;font-weight:800;color:var(--green-light);letter-spacing:-0.03em;line-height:1;">500만</div>
-      <div style="font-size:1.3rem;color:var(--text-3);margin-top:6px;">원 / 월 순절감</div>
-    </div>
-
-  </div>
-
-  <!-- 연간 절감 + 1건당 비용 비교 -->
-  <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-
-    <!-- 상담 1건당 비용 비교 -->
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:24px 28px;">
-      <div style="font-size:1.2rem;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;">상담 1건당 해결 비용 (ALF 공식 데이터)</div>
-      <div style="display:flex;align-items:center;gap:16px;">
-        <div style="text-align:center;">
-          <div style="font-size:1.15rem;color:var(--text-3);margin-bottom:4px;">사람 상담사</div>
-          <div style="font-size:2.8rem;font-weight:800;color:var(--red);letter-spacing:-0.02em;text-decoration:line-through;opacity:0.7;">1,600원</div>
-        </div>
-        <div style="font-size:2rem;color:var(--text-3);">→</div>
-        <div style="text-align:center;">
-          <div style="font-size:1.15rem;color:var(--text-3);margin-bottom:4px;">채널톡 ALF</div>
-          <div style="font-size:2.8rem;font-weight:800;color:var(--brand);letter-spacing:-0.02em;">500원</div>
-        </div>
-        <div style="background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.3);border-radius:8px;padding:10px 16px;text-align:center;margin-left:4px;">
-          <div style="font-size:2rem;font-weight:800;color:var(--green-light);">−69%</div>
-          <div style="font-size:1.1rem;color:var(--text-2);">비용 절감</div>
-        </div>
+      <div style="font-size:1.4rem;color:var(--text-2);line-height:1.8;">
+        1인당 연봉 3,600만원 기준<br>
+        <strong style="color:var(--red);">야간·주말엔 응대 불가</strong><br>
+        연간 총 7,200만원 지출
       </div>
     </div>
 
-    <!-- 연간 절감 + ROI -->
-    <div style="background:var(--brand-dim);border:1px solid var(--border-accent);border-radius:14px;padding:24px 28px;display:flex;flex-direction:column;justify-content:space-between;">
-      <div>
-        <div style="font-size:1.2rem;font-weight:700;color:var(--brand-light);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">연간 절감 효과</div>
-        <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
-          <span style="font-size:1.4rem;font-weight:700;color:var(--text-2);">월 500만 × 12 =</span>
-          <span style="font-size:3.2rem;font-weight:800;color:var(--brand);letter-spacing:-0.03em;">6,000만 원</span>
-        </div>
+    <!-- 가운데: vs -->
+    <div style="background:var(--bg-card2);display:flex;align-items:center;justify-content:center;width:64px;flex-shrink:0;">
+      <div style="writing-mode:vertical-rl;font-size:1.4rem;font-weight:800;color:var(--text-3);letter-spacing:0.1em;">VS</div>
+    </div>
+
+    <!-- 오른쪽: 채널톡 -->
+    <div style="background:linear-gradient(135deg,var(--brand-dim),rgba(255,138,80,0.04));padding:48px 40px;text-align:center;position:relative;">
+      <div style="position:absolute;top:20px;right:20px;background:rgba(74,222,128,0.15);border:1px solid rgba(74,222,128,0.3);border-radius:8px;padding:6px 14px;font-size:1.2rem;font-weight:700;color:var(--green-light);">6분의 1 비용</div>
+      <div style="font-size:1.3rem;font-weight:700;color:var(--brand-light);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🤖 채널톡 ALF</div>
+      <div style="font-size:1.5rem;color:var(--text-3);margin-bottom:20px;">2,000건/월 처리 기준</div>
+      <!-- 시각적 바 -->
+      <div style="background:var(--brand-dim);border:1.5px solid var(--border-accent);border-radius:12px;padding:36px 24px;margin-bottom:24px;">
+        <div style="font-size:1.4rem;color:var(--text-2);margin-bottom:8px;">월 이용료</div>
+        <div style="font-size:5.2rem;font-weight:800;color:var(--brand);letter-spacing:-0.04em;line-height:1;">70~100만</div>
+        <div style="font-size:2rem;color:var(--brand);font-weight:600;">원 / 월</div>
       </div>
-      <div style="display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border-accent);">
-        <div style="text-align:center;flex-shrink:0;">
-          <div style="font-size:3rem;font-weight:800;color:var(--brand);letter-spacing:-0.02em;">6배</div>
-          <div style="font-size:1.2rem;color:var(--text-2);">투자 대비 회수</div>
-        </div>
-        <div style="font-size:1.35rem;color:var(--text-2);line-height:1.8;">채널톡 <strong style="color:var(--brand);">+100만</strong> 투자<br>인건비 <strong style="color:var(--green-light);">−600만</strong> 절감<br>순이익 <strong style="color:var(--green-light);">+500만/월</strong></div>
+      <div style="font-size:1.4rem;color:var(--text-2);line-height:1.8;">
+        상담 1건당 500원<br>
+        <strong style="color:var(--brand);">24시간 365일 응대</strong><br>
+        연간 총 840~1,200만원 지출
       </div>
     </div>
 
   </div>
+
+  <!-- 절감 결과 강조 배너 -->
+  <div style="margin-top:20px;background:linear-gradient(135deg,rgba(74,222,128,0.12),rgba(74,222,128,0.06));border:2px solid rgba(74,222,128,0.3);border-radius:16px;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:20px;">
+      <div style="font-size:1.5rem;font-weight:700;color:var(--text-2);">월</div>
+      <div style="text-align:center;">
+        <div style="font-size:4.8rem;font-weight:800;color:var(--red);letter-spacing:-0.03em;line-height:1;text-decoration:line-through;opacity:0.6;">600만</div>
+        <div style="font-size:1.2rem;color:var(--text-3);">사람 인건비</div>
+      </div>
+      <div style="font-size:3rem;font-weight:300;color:var(--text-3);">→</div>
+      <div style="text-align:center;">
+        <div style="font-size:3.2rem;font-weight:800;color:var(--brand);letter-spacing:-0.03em;line-height:1;">70~100만</div>
+        <div style="font-size:1.2rem;color:var(--text-3);">채널톡 비용</div>
+      </div>
+    </div>
+    <div style="text-align:center;padding:20px 32px;background:rgba(74,222,128,0.15);border-radius:12px;border:1px solid rgba(74,222,128,0.3);">
+      <div style="font-size:1.3rem;color:var(--text-2);margin-bottom:4px;">매달 아끼는 돈</div>
+      <div style="font-size:5rem;font-weight:800;color:var(--green-light);letter-spacing:-0.04em;line-height:1;">+500만</div>
+      <div style="font-size:1.4rem;color:var(--text-2);margin-top:4px;">원 순절감 · 연간 6,000만원</div>
+    </div>
+  </div>
+
 </div></section>
 
 <!-- ═══ PAGE 5: REFERENCE — 펫프렌즈, 바잇미 ═══ -->

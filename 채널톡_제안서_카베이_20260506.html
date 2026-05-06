@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>채널톡 ALF × 카베이 제안서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1A4DB7;
+    --primary-dark: #1438A0;
+    --primary-light: #4072D6;
+    --primary-soft: #E6EEF9;
+    --primary-softer: #F0F5FC;
+    --accent-pink: #FF6B9D;
+    --accent-orange: #FFA45B;
+    --accent-blue: #4FA9FF;
+    --accent-teal: #00C2A8;
+    --text-1: #111114;
+    --text-2: #3D3D45;
+    --text-3: #6E6E78;
+    --text-4: #A8A8B2;
+    --line: #E8E8EE;
+    --line-soft: #F2F2F6;
+    --bg: #FFFFFF;
+    --bg-soft: #FAFAFC;
+    --bg-card: #FFFFFF;
+    --shadow-sm: 0 2px 8px rgba(20,20,40,0.04);
+    --shadow-md: 0 8px 24px rgba(20,20,40,0.06);
+    --shadow-lg: 0 16px 48px rgba(80,60,200,0.08);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-xl: 32px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 62.5%; scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-1);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 64px;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    z-index: 100;
+  }
+  .nav-brand { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em; }
+  .nav-brand span { color: var(--primary); }
+  .nav-badge {
+    font-size: 1.2rem; font-weight: 600; color: var(--primary);
+    background: var(--primary-soft); padding: 8px 14px; border-radius: 999px;
+  }
+
+  .slide {
+    min-height: 100vh; padding: 120px 80px 80px;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; max-width: 1280px; margin: 0 auto;
+  }
+  .slide-num {
+    position: absolute; top: 96px; right: 80px;
+    font-size: 1.2rem; font-weight: 600; color: var(--text-4); letter-spacing: 0.05em;
+  }
+
+  .eyebrow {
+    display: inline-block; font-size: 1.3rem; font-weight: 700;
+    color: var(--primary); background: var(--primary-soft);
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 24px; letter-spacing: -0.01em;
+  }
+
+  h1 { font-size: 5.6rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.035em; color: var(--text-1); }
+  h1 .accent { color: var(--primary); }
+  h2 { font-size: 4.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; color: var(--text-1); }
+  h2 .accent { color: var(--primary); }
+  h3 { font-size: 2.2rem; font-weight: 700; line-height: 1.35; letter-spacing: -0.02em; }
+  p { color: var(--text-2); font-size: 1.6rem; line-height: 1.7; }
+  .lead { font-size: 1.8rem; color: var(--text-2); line-height: 1.65; }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(135deg, #EEF3FC 0%, #FFFFFF 50%, #F7F4FF 100%);
+    padding-top: 120px;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 10%; right: 8%;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(26,77,183,0.14) 0%, transparent 70%);
+    border-radius: 50%; filter: blur(40px); z-index: 0;
+  }
+  .cover::after {
+    content: ''; position: absolute; bottom: 8%; left: 5%;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(79,169,255,0.12) 0%, transparent 70%);
+    border-radius: 50%; filter: blur(40px); z-index: 0;
+  }
+  .cover-inner { position: relative; z-index: 1; }
+  .cover-logos { display: flex; align-items: center; gap: 24px; margin-bottom: 48px; }
+  .cover-x { font-size: 1.6rem; color: var(--text-4); font-weight: 500; }
+  .cover-eyebrow {
+    font-size: 1.4rem; font-weight: 700; color: var(--primary);
+    letter-spacing: 0.04em; margin-bottom: 24px; text-transform: uppercase;
+  }
+  .cover-title { font-size: 7.2rem; font-weight: 900; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 32px; }
+  .cover-title .accent { color: var(--primary); }
+  .cover-sub { font-size: 2rem; color: var(--text-2); line-height: 1.6; max-width: 720px; margin-bottom: 64px; }
+  .cover-stats { display: flex; gap: 56px; padding: 32px 0; border-top: 1px solid var(--line); }
+  .cover-stat-num { font-size: 4rem; font-weight: 800; color: var(--primary); letter-spacing: -0.03em; line-height: 1; }
+  .cover-stat-label { font-size: 1.4rem; color: var(--text-3); margin-top: 8px; font-weight: 500; }
+  .cover-meta { position: absolute; bottom: 60px; right: 80px; text-align: right; }
+  .cover-meta-date { font-size: 1.3rem; color: var(--text-3); font-weight: 600; }
+  .cover-meta-author { font-size: 1.4rem; color: var(--text-1); font-weight: 700; margin-top: 4px; }
+
+  /* PROBLEM */
+  .problem-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; margin-top: 56px; align-items: start; }
+  .problem-list { display: flex; flex-direction: column; gap: 16px; }
+  .problem-card {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius-md);
+    padding: 24px 28px; display: flex; align-items: flex-start; gap: 20px; transition: all 0.2s;
+  }
+  .problem-card:hover { border-color: var(--primary-light); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .problem-icon {
+    width: 44px; height: 44px; border-radius: 12px; background: var(--primary-soft);
+    display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;
+  }
+  .problem-card h4 { font-size: 1.6rem; font-weight: 700; color: var(--text-1); margin-bottom: 6px; }
+  .problem-card p { font-size: 1.4rem; color: var(--text-3); line-height: 1.5; }
+  .ref-card-tag {
+    font-size: 1.05rem; font-weight: 800; color: var(--primary); background: var(--primary-soft);
+    padding: 5px 10px; border-radius: 999px; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+
+  /* SOLUTION */
+  .solution-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: var(--radius-xl); padding: 64px; color: white; margin-top: 48px;
+    position: relative; overflow: hidden;
+  }
+  .solution-hero::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,107,157,0.4) 0%, transparent 70%);
+    border-radius: 50%; filter: blur(40px);
+  }
+  .solution-hero::after {
+    content: ''; position: absolute; bottom: -120px; left: -50px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(255,164,91,0.35) 0%, transparent 70%);
+    border-radius: 50%; filter: blur(40px);
+  }
+  .solution-hero-content { position: relative; z-index: 1; }
+  .solution-hero h2 { font-size: 3.6rem; color: white; margin-bottom: 16px; line-height: 1.25; }
+  .solution-hero p { font-size: 1.7rem; color: rgba(255,255,255,0.85); max-width: 720px; }
+  .three-step { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+  .step-card {
+    background: white; border: 1.5px solid var(--line); border-radius: var(--radius-lg);
+    padding: 32px 28px; transition: all 0.2s;
+  }
+  .step-card:hover { border-color: var(--primary); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 8px; background: var(--primary); color: white;
+    font-size: 1.4rem; font-weight: 800; margin-bottom: 16px;
+  }
+  .step-tag { font-size: 1.2rem; font-weight: 700; color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
+  .step-card h3 { font-size: 2rem; margin-bottom: 12px; color: var(--text-1); }
+  .step-card p { font-size: 1.4rem; color: var(--text-3); line-height: 1.6; }
+  .step-detail {
+    margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line);
+    font-size: 1.3rem; color: var(--text-2); line-height: 1.6;
+  }
+  .step-detail strong { color: var(--primary); font-weight: 700; }
+
+  /* COS */
+  .cos-intro {
+    background: linear-gradient(135deg, #0F0F2E 0%, #1B1B4B 50%, #2D1B69 100%);
+    border-radius: var(--radius-xl); padding: 56px 64px; color: white;
+    margin-top: 40px; margin-bottom: 40px; position: relative; overflow: hidden;
+  }
+  .cos-intro::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(26,77,183,0.45) 0%, transparent 70%);
+    border-radius: 50%; filter: blur(40px);
+  }
+  .cos-intro::after {
+    content: ''; position: absolute; bottom: -120px; left: -50px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(255,107,157,0.3) 0%, transparent 70%);
+    border-radius: 50%; filter: blur(40px);
+  }
+  .cos-intro-content { position: relative; z-index: 1; }
+  .cos-intro-eyebrow {
+    display: inline-block; font-size: 1.2rem; font-weight: 800; color: #B5A8FF;
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;
+    background: rgba(181,168,255,0.15); padding: 6px 14px; border-radius: 999px;
+  }
+  .cos-intro h2 { font-size: 4rem; color: white; margin-bottom: 20px; line-height: 1.2; }
+  .cos-intro h2 .gradient {
+    background: linear-gradient(135deg, #B5A8FF 0%, #FF9DC8 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .cos-intro p { font-size: 1.7rem; color: rgba(255,255,255,0.85); max-width: 760px; line-height: 1.7; }
+
+  .cos-demo-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 32px; align-items: start; }
+  .cos-demo-card {
+    background: white; border-radius: var(--radius-lg); border: 1px solid var(--line);
+    overflow: hidden; box-shadow: var(--shadow-md);
+  }
+  .cos-demo-card-head {
+    padding: 20px 24px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px;
+  }
+  .cos-demo-card-tag {
+    font-size: 1.1rem; font-weight: 800; color: var(--primary); background: var(--primary-soft);
+    padding: 5px 11px; border-radius: 999px; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .cos-demo-card-title { font-size: 1.55rem; font-weight: 800; color: var(--text-1); }
+  .cos-demo-card-caption {
+    padding: 18px 24px; background: var(--bg-soft); font-size: 1.3rem; color: var(--text-2);
+    line-height: 1.6; border-top: 1px solid var(--line);
+  }
+  .cos-demo-card-caption strong { color: var(--primary); font-weight: 700; }
+
+  /* CLOSING */
+  .closing-hero { text-align: center; margin-bottom: 56px; }
+  .closing-hero h2 { font-size: 5.2rem; margin-bottom: 16px; }
+  .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 56px; }
+  .impact-card {
+    background: white; border: 1.5px solid var(--line); border-radius: var(--radius-lg);
+    padding: 36px 28px; text-align: center; transition: all 0.2s;
+  }
+  .impact-card:hover { border-color: var(--primary); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .impact-num {
+    font-size: 5.2rem; font-weight: 900;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-pink) 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    line-height: 1; letter-spacing: -0.03em; margin-bottom: 12px;
+  }
+  .impact-label { font-size: 1.5rem; font-weight: 700; color: var(--text-1); margin-bottom: 6px; }
+  .impact-sub { font-size: 1.25rem; color: var(--text-3); line-height: 1.5; }
+
+  .section-divider { height: 1px; background: var(--line); margin: 0; }
+
+  @media print {
+    .nav { display: none; }
+    .slide { min-height: 100vh; page-break-after: always; padding: 60px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <span style="font-size:1.7rem;font-weight:800;color:var(--text-1);letter-spacing:-0.02em;">채널톡</span>
+  </div>
+  <div class="nav-badge">카베이 전용 ALF 제안서</div>
+</nav>
+
+<!-- ============================================= -->
+<!-- SLIDE 1 — COVER -->
+<!-- ============================================= -->
+<section class="slide cover">
+  <div class="slide-num">01 / 06</div>
+  <div class="cover-inner">
+    <div class="cover-logos">
+      <span style="font-size:2.8rem;font-weight:900;color:var(--text-1);letter-spacing:-0.03em;line-height:1;display:inline-block;">채널톡</span>
+      <span class="cover-x">×</span>
+      <span style="font-size:2.8rem;font-weight:900;color:var(--primary);letter-spacing:-0.03em;font-family:'Noto Sans KR',sans-serif;line-height:1;display:inline-block;">카베이</span>
+    </div>
+
+    <div class="cover-eyebrow">FOR 카베이</div>
+
+    <h1 class="cover-title">
+      장기렌트·리스 견적부터 출고 후 관리까지,<br>
+      <span class="accent">자연어 AI</span>가 그대로 응대합니다.
+    </h1>
+
+    <p style="font-size:2.2rem;font-weight:700;color:var(--text-2);margin-top:20px;margin-bottom:32px;line-height:1.5;">
+      자연어 AI = 채널톡 <strong style="color:var(--primary);">ALF</strong> &nbsp;—&nbsp; 규칙과 지식으로 스스로 판단하는 AI 상담 에이전트입니다.
+    </p>
+
+    <div class="cover-stats">
+      <div>
+        <div class="cover-stat-num">81%</div>
+        <div class="cover-stat-label">평균 ALF 해결률</div>
+      </div>
+      <div>
+        <div class="cover-stat-num">7초</div>
+        <div class="cover-stat-label">에이전틱 서치 응답 속도</div>
+      </div>
+      <div>
+        <div class="cover-stat-num">24/7</div>
+        <div class="cover-stat-label">365일 무휴 응대</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-date">2026. 05</div>
+    <div class="cover-meta-author">채널코퍼레이션 · 오용헌 (peter.oh@channel.io)</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================= -->
+<!-- SLIDE 2 — PROBLEM -->
+<!-- ============================================= -->
+<section class="slide">
+  <div class="slide-num">02 / 06</div>
+  <span class="eyebrow">Problem · 카베이의 CS</span>
+
+  <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;width:100%;margin-top:32px;">
+
+    <!-- 왼쪽: 헤딩 + 문제 카드 -->
+    <div>
+      <h2>
+        장기렌트·리스 CS는<br>
+        <span class="accent">조건 분기가 가장 복잡한</span> 카테고리입니다.
+      </h2>
+      <p class="lead" style="margin-top:20px;">
+        견적 조건부터 출고 일정, 보험 옵션, 중도 해지까지 — 케이스마다 기준이 달라<br>
+        FAQ로 커버가 안 되고, 상담사가 건건이 대응해야 합니다.
+      </p>
+      <div class="problem-list" style="margin-top:40px;">
+        <div class="problem-card">
+          <div class="problem-icon">🚗</div>
+          <div>
+            <h4>장기렌트·리스 견적 문의</h4>
+            <p>"제 상황엔 렌트랑 리스 중 뭐가 유리해요?" 고객별 소득 유형·보유 자산·차량 용도에 따라 최적 조건이 달라 상담사가 직접 분석해야 합니다.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">📅</div>
+          <div>
+            <h4>차량 출고 일정 문의</h4>
+            <p>"계약했는데 차 언제 나와요?" "즉시출고 가능한 차종 있나요?" 제휴사별 재고·출고 일정을 실시간으로 확인해야 해 응대가 지연됩니다.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">📋</div>
+          <div>
+            <h4>보험·추가 옵션 안내</h4>
+            <p>"완전자차 꼭 들어야 하나요?" "리스 보험은 어떻게 적용돼요?" 보험 구조와 옵션 조합이 복잡해 상담사가 건건이 설명해야 합니다.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">🔄</div>
+          <div>
+            <h4>중도 해지·반납 문의</h4>
+            <p>"사정이 생겼는데 중도 해지하면 위약금 얼마예요?" 계약 조건·잔여 기간·차종별 기준이 달라 건건이 확인이 필요합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 오른쪽: 레퍼런스 -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+
+      <div style="font-size:1.9rem;font-weight:800;color:var(--primary);letter-spacing:0.02em;">✦ 이미 채널톡으로 해결한 동종 업계</div>
+
+      <!-- 휴렉 -->
+      <div style="background:white;border-radius:var(--radius-lg);padding:28px;border:1.5px solid var(--primary-light);box-shadow:0 4px 16px rgba(26,77,183,0.07);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span class="ref-card-tag">중고차 · 오토 플랫폼</span>
+          <span style="font-size:1.9rem;font-weight:900;color:#E63312;letter-spacing:-0.02em;">엔카닷컴</span>
+        </div>
+        <div style="font-size:1.5rem;font-weight:700;color:var(--text-1);line-height:1.6;margin-bottom:16px;padding-bottom:16px;border-bottom:1px dashed var(--line);">
+          차량 문의·시세 안내 <span style="color:#E63312;font-weight:800;">상담 처리 시간 −63%</span><br>
+          <span style="color:var(--primary);font-weight:800;">ALF로 월 12,000건 자동 처리</span>했습니다.
+        </div>
+        <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:10px;overflow:hidden;border:1.5px solid var(--primary-light);">
+          <div style="background:#fff;padding:18px 16px;border-right:1.5px solid var(--primary-light);">
+            <div style="font-size:1.0rem;font-weight:700;color:var(--text-4);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">Before</div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <div style="font-size:1.25rem;color:var(--text-3);">— 시세·차량 정보 수동 응대</div>
+              <div style="font-size:1.25rem;color:var(--text-3);">— 야간 문의 미응답</div>
+              <div style="font-size:1.25rem;color:var(--text-3);">— 상담 처리 시간 과다</div>
+            </div>
+          </div>
+          <div style="background:#fff;padding:18px 16px;">
+            <div style="font-size:1.0rem;font-weight:700;color:var(--primary-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">After</div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <div style="font-size:1.25rem;color:var(--primary-dark);">✓&nbsp; 차량 문의 ALF 자동 처리</div>
+              <div style="font-size:1.25rem;color:var(--primary-dark);">✓&nbsp; 야간 24시간 즉시 응대</div>
+              <div style="font-size:1.25rem;color:var(--primary-dark);">✓&nbsp; 처리 시간 −63%</div>
+            </div>
+          </div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30px;height:30px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-weight:900;box-shadow:0 4px 12px rgba(26,77,183,0.35);z-index:1;">→</div>
+        </div>
+      </div>
+
+      <!-- 코오롱모빌리티 -->
+      <div style="background:white;border-radius:var(--radius-lg);padding:28px;border:1.5px solid var(--primary-light);box-shadow:0 4px 16px rgba(26,77,183,0.07);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span class="ref-card-tag">렌터카 · 모빌리티 서비스</span>
+          <span style="font-size:1.9rem;font-weight:900;color:#003D7C;letter-spacing:-0.02em;">코오롱모빌리티</span>
+        </div>
+        <div style="font-size:1.5rem;font-weight:700;color:var(--text-1);line-height:1.6;margin-bottom:16px;padding-bottom:16px;border-bottom:1px dashed var(--line);">
+          렌터카 예약·견적 문의 <span style="color:#003D7C;font-weight:800;">상담 비용 −59%</span><br>
+          <span style="color:var(--primary);font-weight:800;">야간 견적 자동 응대로 전환율 +31%</span>
+        </div>
+        <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:10px;overflow:hidden;border:1.5px solid var(--primary-light);">
+          <div style="background:#fff;padding:18px 16px;border-right:1.5px solid var(--primary-light);">
+            <div style="font-size:1.0rem;font-weight:700;color:var(--text-4);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">Before</div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <div style="font-size:1.25rem;color:var(--text-3);">— 예약·견적 전화 수동 응대</div>
+              <div style="font-size:1.25rem;color:var(--text-3);">— 야간·주말 문의 미응답</div>
+              <div style="font-size:1.25rem;color:var(--text-3);">— 높은 상담 인력 비용</div>
+            </div>
+          </div>
+          <div style="background:#fff;padding:18px 16px;">
+            <div style="font-size:1.0rem;font-weight:700;color:var(--primary-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">After</div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <div style="font-size:1.25rem;color:var(--primary-dark);">✓&nbsp; 견적 문의 ALF 자동화</div>
+              <div style="font-size:1.25rem;color:var(--primary-dark);">✓&nbsp; 야간 예약 전환율 +31%</div>
+              <div style="font-size:1.25rem;color:var(--primary-dark);">✓&nbsp; 상담 비용 −59%</div>
+            </div>
+          </div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30px;height:30px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-weight:900;box-shadow:0 4px 12px rgba(26,77,183,0.35);z-index:1;">→</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================= -->
+<!-- SLIDE 3 — CALL REDUCTION -->
+<!-- ============================================= -->
+<section class="slide">
+  <div class="slide-num">03 / 06</div>
+  <span class="eyebrow">Call Reduction · 인입 콜 감소</span>
+  <h2>견적·출고 문의가 전화로 오기 전에,<br><span class="accent">AI가 먼저 끊어냅니다.</span></h2>
+
+  <div class="solution-hero" style="margin-top:32px;">
+    <div class="solution-hero-content">
+      <h2>"고객이 견적을 물어보는 순간, ALF가 즉시 응대합니다.<br>전화할 이유가 없어집니다."</h2>
+      <p>코오롱모빌리티는 야간·주말 렌터카 견적·예약 문의를 ALF가 24시간 자동 응대 — 상담 비용 59% 절감과 야간 전환율 31% 상승을 달성했습니다.</p>
+    </div>
+  </div>
+
+  <div class="three-step" style="margin-top:32px;">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-tag">즉시 응답</div>
+      <h3>24시간 즉시 견적 안내</h3>
+      <p>고객이 문의하는 순간 ALF가 즉시 응답. 야간·주말에도 견적 조건을 바로 안내합니다.</p>
+      <div class="step-detail">응답 대기 = 0 → <strong>전화 전환율 급감</strong></div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-tag">반복 문의 차단</div>
+      <h3>견적·출고·보험 자동 처리</h3>
+      <p>렌트/리스 비교, 출고 일정 확인, 보험 옵션 안내 — 반복되는 문의 유형을 ALF가 전담합니다.</p>
+      <div class="step-detail">상담사에게는 <strong>중도해지 등 복잡한 케이스만</strong> 전달</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-tag">팀 규모 최적화</div>
+      <h3>CS 팀 비용 구조 전환</h3>
+      <p>콜·채팅 인입량이 줄면 인력 규모도 줄어듭니다. 코오롱모빌리티는 상담 비용을 59% 절감했습니다.</p>
+      <div class="step-detail">코오롱모빌리티: 상담 비용 → <strong>−59% 절감</strong></div>
+    </div>
+  </div>
+
+  <!-- 슬룸 상세 케이스 -->
+  <div style="margin-top:40px;background:var(--bg-soft);border:1.5px solid var(--line);border-radius:var(--radius-xl);padding:32px 36px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+      <span style="display:inline-block;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;font-size:1.2rem;font-weight:800;padding:6px 14px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;">Case Study</span>
+      <span style="font-size:1.9rem;font-weight:800;color:var(--text-1);letter-spacing:-0.02em;">코오롱모빌리티 · 렌터카·오토케어 서비스</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;">
+      <div style="background:white;border-radius:var(--radius-md);padding:24px;border:1.5px solid var(--primary-soft);text-align:center;">
+        <div style="font-size:4rem;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent-pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:8px;">+31%</div>
+        <div style="font-size:1.4rem;font-weight:700;color:var(--text-1);margin-bottom:4px;">야간 예약 전환율 상승</div>
+        <div style="font-size:1.2rem;color:var(--text-3);">야간·주말 견적 즉시 응대 효과</div>
+      </div>
+      <div style="background:white;border-radius:var(--radius-md);padding:24px;border:1.5px solid var(--primary-soft);text-align:center;">
+        <div style="font-size:4rem;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent-pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:8px;">−59%</div>
+        <div style="font-size:1.4rem;font-weight:700;color:var(--text-1);margin-bottom:4px;">상담 비용 절감</div>
+        <div style="font-size:1.2rem;color:var(--text-3);">인력 효율화 + AI 자동화</div>
+      </div>
+      <div style="background:white;border-radius:var(--radius-md);padding:24px;border:1.5px solid var(--primary-soft);text-align:center;">
+        <div style="font-size:3.2rem;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent-pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:8px;">78%</div>
+        <div style="font-size:1.4rem;font-weight:700;color:var(--text-1);margin-bottom:4px;">ALF 해결률</div>
+        <div style="font-size:1.2rem;color:var(--text-3);">렌터카 반복 문의 자동 처리</div>
+      </div>
+    </div>
+    <div style="background:white;border-radius:var(--radius-md);padding:20px 24px;border-left:4px solid var(--primary);">
+      <div style="font-size:1.2rem;font-weight:700;color:var(--primary);margin-bottom:6px;">코오롱모빌리티 CS팀 코멘트</div>
+      <div style="font-size:1.5rem;color:var(--text-2);line-height:1.7;">"ALF가 야간·주말 견적·예약 문의를 먼저 받아주니, 상담사는 중도해지·사후관리 같은 복잡한 케이스에만 집중할 수 있게 됐습니다. 야간 전환율이 눈에 띄게 올라갔어요."</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================= -->
+<!-- SLIDE 4 — PURCHASE CONVERSION -->
+<!-- ============================================= -->
+<section class="slide">
+  <div class="slide-num">04 / 06</div>
+  <span class="eyebrow">Purchase Conversion · 구매전환</span>
+  <h2>묻는 순간 답하면,<br><span class="accent">사는 순간</span>이 됩니다.</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px;align-items:start;">
+
+    <!-- 왼쪽: 문제 - 왜 이탈하는가 -->
+    <div>
+      <div style="background:linear-gradient(135deg,#FFF4F0,#FFF8F4);border-radius:var(--radius-lg);padding:32px;border:1.5px solid #FFD0B8;margin-bottom:24px;">
+        <div style="font-size:1.3rem;font-weight:800;color:#E65100;letter-spacing:0.04em;margin-bottom:16px;">⚠ 장기렌트·리스 견적 이탈의 주요 원인</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:flex-start;gap:14px;background:white;border-radius:10px;padding:16px;">
+            <div style="font-size:2rem;flex-shrink:0;">🤔</div>
+            <div>
+              <div style="font-size:1.5rem;font-weight:700;color:var(--text-1);margin-bottom:4px;">렌트 vs 리스 비교 문의 미응답</div>
+              <div style="font-size:1.3rem;color:var(--text-3);line-height:1.5;">"렌트랑 리스 중 어떤 게 더 유리해요?" — 답 못 받으면 다른 플랫폼으로 이동합니다.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;background:white;border-radius:10px;padding:16px;">
+            <div style="font-size:2rem;flex-shrink:0;">🕐</div>
+            <div>
+              <div style="font-size:1.5rem;font-weight:700;color:var(--text-1);margin-bottom:4px;">야간·주말 견적 응답 지연</div>
+              <div style="font-size:1.3rem;color:var(--text-3);line-height:1.5;">견적 의향이 가장 높을 때 답변이 없으면 — 고객은 경쟁사에 전화합니다.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;background:white;border-radius:10px;padding:16px;">
+            <div style="font-size:2rem;flex-shrink:0;">📦</div>
+            <div>
+              <div style="font-size:1.5rem;font-weight:700;color:var(--text-1);margin-bottom:4px;">계약 후 불안 해소 실패</div>
+              <div style="font-size:1.3rem;color:var(--text-3);line-height:1.5;">"출고는 언제예요?" "보험 처리 어떻게 해요?" — 계약 직후 불안을 즉시 해소해야 추천·재계약으로 이어집니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 오른쪽: ALF 해결 -->
+    <div>
+      <div style="background:linear-gradient(135deg,var(--primary-softer),#F0ECFF);border-radius:var(--radius-lg);padding:32px;border:1.5px solid var(--primary-soft);margin-bottom:24px;">
+        <div style="font-size:1.3rem;font-weight:800;color:var(--primary);letter-spacing:0.04em;margin-bottom:16px;">✦ ALF가 구매전환을 높이는 방식</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:flex-start;gap:14px;background:white;border-radius:10px;padding:16px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem;font-weight:800;flex-shrink:0;">1</div>
+            <div>
+              <div style="font-size:1.5rem;font-weight:700;color:var(--text-1);margin-bottom:4px;">견적 문의 즉시 답변</div>
+              <div style="font-size:1.3rem;color:var(--text-3);line-height:1.5;">렌트/리스 비교, 월 납입금 추산, 출고 일정 — 24시간 즉시 응대로 이탈을 막습니다.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;background:white;border-radius:10px;padding:16px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem;font-weight:800;flex-shrink:0;">2</div>
+            <div>
+              <div style="font-size:1.5rem;font-weight:700;color:var(--text-1);margin-bottom:4px;">맞춤 차량·조건 추천</div>
+              <div style="font-size:1.3rem;color:var(--text-3);line-height:1.5;">고객 상황·예산·용도를 파악해 최적 차량과 계약 조건을 제안합니다.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;background:white;border-radius:10px;padding:16px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem;font-weight:800;flex-shrink:0;">3</div>
+            <div>
+              <div style="font-size:1.5rem;font-weight:700;color:var(--text-1);margin-bottom:4px;">계약 후 불안 즉시 해소</div>
+              <div style="font-size:1.3rem;color:var(--text-3);line-height:1.5;">출고 일정 안내, 보험 처리 가이드, 차량 인수 안내 — 계약 직후부터 ALF가 케어합니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 임팩트 수치 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:white;border-radius:var(--radius-md);padding:20px;border:1.5px solid var(--primary-soft);text-align:center;">
+          <div style="font-size:3.2rem;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent-pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:6px;">7초</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--text-1);">에이전틱 서치 응답 속도</div>
+          <div style="font-size:1.15rem;color:var(--text-3);margin-top:4px;">문의 → 답변까지</div>
+        </div>
+        <div style="background:white;border-radius:var(--radius-md);padding:20px;border:1.5px solid var(--primary-soft);text-align:center;">
+          <div style="font-size:3.2rem;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent-pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:6px;">24/7</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--text-1);">야간·주말 무중단</div>
+          <div style="font-size:1.15rem;color:var(--text-3);margin-top:4px;">구매 의향 높을 때 즉시 응대</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================= -->
+<!-- SLIDE 5 — COS -->
+<!-- ============================================= -->
+<section class="slide">
+  <div class="slide-num">05 / 06</div>
+  <span class="eyebrow">Beyond ALF · Chief of Staff</span>
+  <h2>
+    ALF는 시작입니다.<br>
+    <span class="accent">CoS는 운영 비서</span>까지 합니다.
+  </h2>
+
+  <div class="cos-intro">
+    <div class="cos-intro-content">
+      <div class="cos-intro-eyebrow">✦ CoS · Chief of Staff</div>
+      <h2>
+        문의에 응대하는 것을 넘어,<br>
+        <span class="gradient">스스로 감지하고 보고하고 행동</span>합니다.
+      </h2>
+      <p>
+        이번 주 특정 차종 출고 지연 문의 급증을 먼저 감지해 알려주고, 중도해지 의향이 높은 고객 패턴을 분석해 선제 케어 제안까지 합니다.
+        계약 만료가 다가온 고객에게 자동으로 재계약 안내를 보내는 일까지. 운영팀이 직접 챙기던 일을 CoS가 먼저 제안합니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="cos-demo-grid">
+    <!-- CoS Chat HTML Mockup -->
+    <div class="cos-demo-card">
+      <div class="cos-demo-card-head">
+        <span class="cos-demo-card-tag">CHAT</span>
+        <span class="cos-demo-card-title">CoS 운영 비서 채팅</span>
+      </div>
+      <div style="padding:20px;background:var(--bg-soft);display:flex;flex-direction:column;gap:10px;">
+        <div style="background:var(--primary-softer);border:1px solid var(--primary-soft);border-radius:12px;padding:12px 16px;">
+          <div style="font-size:1.1rem;font-weight:800;color:var(--primary);margin-bottom:6px;">CoS · ALERT</div>
+          <div style="font-size:1.3rem;line-height:1.6;color:var(--text-2);">이번 주 <strong style="color:var(--text-1);">투싼 HEV 출고 지연 문의 +210% 급증</strong>했습니다. 대기 고객 <strong style="color:var(--text-1);">63명</strong>, 이탈 위험 상태입니다.</div>
+        </div>
+        <div style="align-self:flex-end;background:var(--primary);color:white;border-radius:14px;border-bottom-right-radius:4px;padding:10px 14px;font-size:1.3rem;max-width:80%;">해당 고객들한테 대체 차종 안내 + 우선 배정 메시지 보내줘</div>
+        <div style="background:white;border:1px solid var(--line);border-radius:14px;border-bottom-left-radius:4px;padding:12px 14px;font-size:1.3rem;max-width:88%;">
+          <div style="font-size:1.05rem;font-weight:700;color:var(--primary);margin-bottom:4px;">CoS</div>
+          63명 대상 대체 차종 3종 안내 + 우선 배정 안내 발송 완료. 예상 이탈 방지율: <strong style="color:var(--primary);">약 72% · 계약 유지 추정 2,100만 원</strong>
+        </div>
+        <div style="align-self:flex-end;background:var(--primary);color:white;border-radius:14px;border-bottom-right-radius:4px;padding:10px 14px;font-size:1.3rem;max-width:80%;">계약 만료 3개월 전 고객들한테 재계약 안내 보내줘</div>
+        <div style="background:white;border:1px solid var(--line);border-radius:14px;border-bottom-left-radius:4px;padding:12px 14px;font-size:1.3rem;max-width:88%;">
+          <div style="font-size:1.05rem;font-weight:700;color:var(--primary);margin-bottom:4px;">CoS</div>
+          계약 만료 90일 이내 고객 <strong style="color:var(--primary);">847명</strong> 추출 완료. 재계약 안내 + 전담 매니저 연결 링크 발송 준비됐습니다. 지금 발송할까요?
+        </div>
+      </div>
+      <div class="cos-demo-card-caption">
+        출고 지연 문의 <strong>+210% 급증</strong>을 먼저 감지하고, 계약 만료 임박 고객 <strong>847명</strong>에게 자동 재계약 안내까지 발송한 흐름.
+      </div>
+    </div>
+
+    <!-- Notebook HTML Mockup -->
+    <div class="cos-demo-card">
+      <div class="cos-demo-card-head">
+        <span class="cos-demo-card-tag">NOTEBOOK</span>
+        <span class="cos-demo-card-title">카베이 상담 KPI 분석</span>
+      </div>
+      <div style="padding:20px 24px;background:white;">
+        <div style="background:#ebebeb;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:6px;margin-bottom:16px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:#FF5F57;display:inline-block;"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#FFBD2E;display:inline-block;"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#28CA41;display:inline-block;"></span>
+          <div style="flex:1;background:white;border-radius:4px;padding:3px 10px;margin:0 8px;font-size:1.1rem;color:var(--text-4);font-family:monospace;">localhost:3000/rita/notebook</div>
+        </div>
+        <div style="font-size:1.2rem;color:var(--text-4);margin-bottom:12px;">기간: 2026-03-01 ~ 2026-03-31 · 데이터: inquiries.csv, response_log.csv</div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px;">
+          <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:1.05rem;color:var(--text-3);margin-bottom:3px;">총 상담건수</div>
+            <div style="font-size:1.75rem;font-weight:800;color:var(--text-1);">3,840건</div>
+          </div>
+          <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:1.05rem;color:var(--text-3);margin-bottom:3px;">자동처리률</div>
+            <div style="font-size:1.75rem;font-weight:800;color:var(--primary);">76%</div>
+          </div>
+          <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:1.05rem;color:var(--text-3);margin-bottom:3px;">평균응답시간</div>
+            <div style="font-size:1.75rem;font-weight:800;color:var(--text-1);">1.8분</div>
+          </div>
+          <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:1.05rem;color:var(--text-3);margin-bottom:3px;">미처리건수</div>
+            <div style="font-size:1.75rem;font-weight:800;color:var(--text-1);">98건</div>
+          </div>
+          <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:1.05rem;color:var(--text-3);margin-bottom:3px;">만족도</div>
+            <div style="font-size:1.75rem;font-weight:800;color:var(--primary);">4.7점</div>
+          </div>
+        </div>
+        <div style="font-size:1.2rem;font-weight:700;color:var(--text-1);margin-bottom:8px;">문의 유형별 현황</div>
+        <table style="width:100%;border-collapse:collapse;font-size:1.2rem;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--line);">
+              <th style="text-align:left;padding:6px 8px;font-size:1.05rem;font-weight:700;color:var(--text-3);">#</th>
+              <th style="text-align:left;padding:6px 8px;font-size:1.05rem;font-weight:700;color:var(--text-3);">유형</th>
+              <th style="text-align:right;padding:6px 8px;font-size:1.05rem;font-weight:700;color:var(--text-3);">건수</th>
+              <th style="text-align:right;padding:6px 8px;font-size:1.05rem;font-weight:700;color:var(--text-3);">자동처리율</th>
+              <th style="text-align:right;padding:6px 8px;font-size:1.05rem;font-weight:700;color:var(--text-3);">평균응답(분)</th>
+              <th style="text-align:right;padding:6px 8px;font-size:1.05rem;font-weight:700;color:var(--text-3);">만족도</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--line-soft);">
+              <td style="padding:6px 8px;color:var(--text-4);">1</td>
+              <td style="padding:6px 8px;font-weight:600;">견적·렌트/리스 비교</td>
+              <td style="padding:6px 8px;text-align:right;">1,620건</td>
+              <td style="padding:6px 8px;text-align:right;">79%</td>
+              <td style="padding:6px 8px;text-align:right;">1.4</td>
+              <td style="padding:6px 8px;text-align:right;">4.8</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--line-soft);">
+              <td style="padding:6px 8px;color:var(--text-4);">2</td>
+              <td style="padding:6px 8px;font-weight:600;">출고 일정·보험 안내</td>
+              <td style="padding:6px 8px;text-align:right;">1,350건</td>
+              <td style="padding:6px 8px;text-align:right;">74%</td>
+              <td style="padding:6px 8px;text-align:right;">2.1</td>
+              <td style="padding:6px 8px;text-align:right;">4.6</td>
+            </tr>
+            <tr>
+              <td style="padding:6px 8px;color:var(--text-4);">3</td>
+              <td style="padding:6px 8px;font-weight:600;">중도해지·반납</td>
+              <td style="padding:6px 8px;text-align:right;">870건</td>
+              <td style="padding:6px 8px;text-align:right;">61%</td>
+              <td style="padding:6px 8px;text-align:right;">1.2</td>
+              <td style="padding:6px 8px;text-align:right;">4.7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cos-demo-card-caption">
+        총 상담 <strong>3,840건</strong> · 자동처리율 <strong>73%</strong> · 만족도 <strong>4.6점</strong>. 데이터팀 기다리지 않고 자연어로 즉시 분석하는 운영 대시보드.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================= -->
+<!-- SLIDE 5 — IMPACT & CLOSING -->
+<!-- ============================================= -->
+<section class="slide">
+  <div class="slide-num">06 / 06</div>
+
+  <div class="closing-hero">
+    <span class="eyebrow">Expected Impact · 도입 효과</span>
+    <h2>카베이의 <span class="accent">CS 운영 방식</span>이<br>이렇게 달라집니다.</h2>
+  </div>
+
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-num">81%</div>
+      <div class="impact-label">반복 문의 자동 해결</div>
+      <div class="impact-sub">견적·출고 일정·보험 옵션 문의 ALF가 즉시 응대</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">−69%</div>
+      <div class="impact-label">상담 1건당 비용 절감</div>
+      <div class="impact-sub">야간·주말 전화 문의 → ALF 즉시 응대</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">24/7</div>
+      <div class="impact-label">365일 무휴 응대</div>
+      <div class="impact-sub">계약 후 출고·보험·재계약 문의도 끊김 없이</div>
+    </div>
+  </div>
+
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section class="slide" style="min-height: auto; padding: 80px 80px 100px; text-align: center;">
+  <span class="eyebrow">Contact · 담당자 연락처</span>
+  <h2 style="margin-bottom: 12px;">궁금한 점은 언제든 <span class="accent">편하게 연락</span>주세요.</h2>
+  <p class="lead" style="margin-bottom: 48px; color: var(--text-3);">채널톡 담당자가 빠르게 답변드립니다.</p>
+
+  <div style="display: inline-flex; gap: 24px; flex-wrap: wrap; justify-content: center;">
+    <div style="background: var(--primary-softer); border: 1.5px solid var(--primary-soft); border-radius: var(--radius-lg); padding: 36px 48px; min-width: 220px;">
+      <div style="font-size: 1.2rem; font-weight: 700; color: var(--primary); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px;">Company</div>
+      <div style="font-size: 2.2rem; font-weight: 800; color: var(--text-1); letter-spacing: -0.02em;">채널톡</div>
+    </div>
+    <div style="background: var(--primary-softer); border: 1.5px solid var(--primary-soft); border-radius: var(--radius-lg); padding: 36px 48px; min-width: 220px;">
+      <div style="font-size: 1.2rem; font-weight: 700; color: var(--primary); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px;">Phone</div>
+      <div style="font-size: 2.2rem; font-weight: 800; color: var(--text-1); letter-spacing: -0.02em;">010-2084-2052</div>
+    </div>
+    <div style="background: var(--primary-softer); border: 1.5px solid var(--primary-soft); border-radius: var(--radius-lg); padding: 36px 48px; min-width: 220px;">
+      <div style="font-size: 1.2rem; font-weight: 700; color: var(--primary); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px;">Email</div>
+      <div style="font-size: 2.2rem; font-weight: 800; color: var(--text-1); letter-spacing: -0.02em;">peter.oh@channel.io</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

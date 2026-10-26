@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>센드페이 × 채널톡 AI CoS·노트북</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#eef0f4; --card:#fff; --ink:#15171c; --sub:#5b6170; --line:#e3e6ec;
+    --accent:#6b4ef6; --accent-soft:#f1eeff; --blue:#2f6fe0; --green:#16a36b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:Pretendard,"Noto Sans KR",-apple-system,sans-serif;
+    word-break:keep-all;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:48px 20px 64px}
+  .eyebrow{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.02em}
+  h1{font-size:40px;line-height:1.25;font-weight:800;letter-spacing:-.03em;margin:10px 0 14px}
+  h1 em{font-style:normal;color:var(--accent)}
+  .lead{font-size:17px;color:var(--sub);max-width:640px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--sub)}
+  section{margin-top:44px}
+  h2{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+  .h2sub{color:var(--sub);font-size:15px;margin-bottom:18px}
+  .card{background:var(--card);border-radius:18px;padding:24px;border:1px solid var(--line)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;
+    background:var(--accent-soft);color:var(--accent);font-weight:800;font-size:14px;margin-bottom:12px}
+  .card h3{font-size:17px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+  .card p{font-size:14px;color:var(--sub)}
+  /* use-case rows */
+  .uc{display:grid;grid-template-columns:44px 1fr 1.1fr;gap:18px;align-items:start;padding:22px 24px}
+  .uc + .uc{margin-top:12px}
+  .rail{font-size:22px;font-weight:800;color:var(--accent);line-height:1}
+  .uc h3{margin-bottom:4px}
+  .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--green);background:#e8f7f0;border-radius:6px;padding:2px 8px;margin-top:10px}
+  .chat{background:#f7f8fa;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:13px}
+  .q{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;display:inline-block;font-weight:600;margin-bottom:10px}
+  .a .lbl{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px}
+  .a{color:#333}
+  .bar{height:8px;border-radius:4px;background:var(--accent);margin:4px 0 2px}
+  .bar.l2{background:#b9adfb}.bar.l3{background:#dcd5fd}
+  .mini{display:flex;justify-content:space-between;font-size:12px;color:var(--sub)}
+  /* notebook */
+  .nb-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+  .nb-row:first-of-type{border-top:0}
+  .nb-row b{font-size:15px}
+  .nb-row small{display:block;color:var(--sub);font-size:13px}
+  .toggle{width:34px;height:20px;border-radius:999px;background:var(--ink);position:relative;flex:none}
+  .toggle:after{content:"";position:absolute;right:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff}
+  .big{font-size:34px;font-weight:800;color:var(--accent);letter-spacing:-.03em;line-height:1.1}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .step .when{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:6px}
+  .trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .trust span{font-size:13px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+  .cta{margin-top:44px;background:var(--ink);color:#fff;border-radius:20px;padding:32px 28px}
+  .cta h2{color:#fff}
+  .cta p{color:#c9ccd4;font-size:15px;margin-top:6px}
+  footer{margin-top:28px;font-size:12px;color:#8a909c;text-align:center}
+  @media (max-width:760px){
+    h1{font-size:30px}
+    .grid3,.grid2,.steps{grid-template-columns:1fr}
+    .uc{grid-template-columns:1fr;gap:10px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">센드페이 × 채널톡 · AI CoS & 노트북 제안</div>
+  <h1>이미 쌓이고 있는 상담 데이터,<br><em>질문 한 줄로</em> 운영 인사이트가 됩니다</h1>
+  <p class="lead">센드 송금·센드카드·카드매니저 고객의 문의는 이미 채널톡에 쌓이고 있습니다. AI CoS는 데이터팀이나 SQL 없이 이 데이터를 분석하고, 노트북은 그 결과를 팀이 매주 함께 보는 대시보드로 만듭니다.</p>
+  <div class="chips">
+    <span class="chip">데이터 요청 2주 → 5분</span>
+    <span class="chip">SQL 없이 자연어로</span>
+    <span class="chip">분석부터 실행까지</span>
+  </div>
+
+  <section>
+    <h2>센드페이 운영에서 이런 질문, 바로 답하고 계신가요?</h2>
+    <p class="h2sub">계좌 없이 쓰는 24시간 선불 서비스는 충전·송금 흐름이 막히는 순간이 곧 고객 불편이 됩니다.</p>
+    <div class="grid3">
+      <div class="card"><div class="num">1</div><h3>충전·송금 이슈를 누가 먼저 알까?</h3><p>편의점·가상계좌·ATM 충전 중 어디서 문제가 생겼는지, 고객 문의가 쌓이기 전에 파악하고 계신가요?</p></div>
+      <div class="card"><div class="num">2</div><h3>민원·사기 의심 문의는 몇 건일까?</h3><p>전자금융업자로서 필요한 민원·리스크 현황, 매번 상담을 하나하나 열어 집계하고 계신가요?</p></div>
+      <div class="card"><div class="num">3</div><h3>가입 후 왜 첫 충전을 안 할까?</h3><p>가입했지만 충전·송금까지 가지 않은 고객이 무엇을 묻고 떠났는지 알고 계신가요?</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>AI CoS — 묻고, 분석하고, 실행합니다</h2>
+    <p class="h2sub">채널톡 상담·고객 데이터는 기본 연결되고, 필요하면 사내 DB(읽기 전용)·엑셀까지 한곳에서 분석합니다.</p>
+
+    <div class="card uc">
+      <div class="rail">01</div>
+      <div><h3>충전·송금 이상 징후 조기 감지</h3><p>문의량이 평소보다 튀는 시간대와 유형을 바로 찾아 팀챗에 공유합니다. 장애 대응과 공지가 빨라집니다.</p><span class="tag">CX · 운영팀</span></div>
+      <div class="chat">
+        <div class="q">오늘 오전 충전 미반영 문의 평소보다 많아? 어느 충전수단이야?</div>
+        <div class="a"><div class="lbl">✦ AI CoS</div>오전 문의가 평소 대비 크게 늘었고, 대부분 특정 충전수단에 몰려 있어요.
+          <div class="bar" style="width:86%"></div><div class="mini"><span>편의점 충전</span><span>최다</span></div>
+          <div class="bar l2" style="width:38%"></div><div class="mini"><span>가상계좌</span></div>
+          <div class="bar l3" style="width:18%"></div><div class="mini"><span>ATM</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card uc">
+      <div class="rail">02</div>
+      <div><h3>민원·사기 의심 문의 모니터링</h3><p>명의도용·사기 의심·환불 분쟁 같은 문의를 자동으로 분류하고 추이를 정리합니다. 리스크·컴플라이언스 보고 자료가 바로 나옵니다.</p><span class="tag">리스크 · 경영진</span></div>
+      <div class="chat">
+        <div class="q">이번 주 사기 의심·명의도용 관련 문의 정리해줘</div>
+        <div class="a"><div class="lbl">✦ AI CoS</div>관련 문의를 유형별로 나누고, 반복되는 패턴과 대응이 늦어진 건을 함께 정리했어요. 지난주와 비교한 표도 만들었어요.</div>
+      </div>
+    </div>
+
+    <div class="card uc">
+      <div class="rail">03</div>
+      <div><h3>이탈 고객 세그먼트 → 바로 액션</h3><p>가입 후 첫 충전 전 이탈, 센드카드 신청 후 미등록 고객을 뽑아 알림톡 발송까지 이어갑니다. 실행 전 최종 승인은 담당자가 합니다.</p><span class="tag">그로스 · 마케팅</span></div>
+      <div class="chat">
+        <div class="q">가입 7일 지났는데 첫 충전 안 한 고객 중 문의 남긴 사람 뽑아줘</div>
+        <div class="a"><div class="lbl">✦ AI CoS</div>세그먼트를 만들었어요. 주된 문의는 '충전 방법'과 '충전 한도'예요. 충전 가이드 알림톡을 보낼까요? <b>[승인 후 발송]</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>노트북 — 매주 팀이 함께 보는 대시보드</h2>
+    <p class="h2sub">자주 보는 분석은 노트북에 저장해 두면 정해진 시간에 자동으로 갱신됩니다.</p>
+    <div class="grid2">
+      <div class="card">
+        <div class="nb-row"><div><b>주간 CX 브리핑</b><small>매주 월 09:30 · 송금/카드/카드매니저별 문의량·응대시간</small></div><div class="toggle"></div></div>
+        <div class="nb-row"><div><b>리스크 리포트</b><small>매주 월 10:00 · 민원·사기 의심 문의 추이</small></div><div class="toggle"></div></div>
+        <div class="nb-row"><div><b>상품 VoC</b><small>매주 금 17:30 · 센드카드 캐시백·교통카드 고객 의견</small></div><div class="toggle"></div></div>
+        <div class="nb-row"><div><b>카드매니저 B2B 리드</b><small>매일 18:00 · 법인 관리 기능 문의 기업 목록</small></div><div class="toggle"></div></div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="big">2주 → 5분</div>
+        <p style="margin-top:10px;font-size:15px">데이터팀에 요청하고 기다리던 분석을 질문 한 줄로 끝냅니다. 한 번 검증한 기준은 노트북에 남아 <b style="color:var(--ink)">누가 물어도 같은 기준, 같은 결과</b>로 이어집니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>도입은 이렇게 가볍게 시작합니다</h2>
+    <p class="h2sub">지금 쓰고 계신 채널톡 그대로, 추가 개발 없이 시작합니다.</p>
+    <div class="steps">
+      <div class="card step"><div class="when">1주차</div><h3>상담 데이터로 시작</h3><p>이미 쌓인 채널톡 상담 데이터만으로 CoS 분석을 바로 써봅니다.</p></div>
+      <div class="card step"><div class="when">2주차</div><h3>노트북 리포트 세팅</h3><p>주간 CX 브리핑·리스크 리포트를 함께 설계하고 자동 갱신을 켭니다.</p></div>
+      <div class="card step"><div class="when">이후</div><h3>사내 데이터 확장</h3><p>필요할 때 사내 DB를 읽기 전용으로 연결해 가입·충전 퍼널까지 분석합니다.</p></div>
+    </div>
+    <div class="trust">
+      <span>🔒 외부 DB는 읽기 전용 연결</span>
+      <span>✅ 실행의 최종 승인은 담당자</span>
+      <span>💬 상담·협업·분석이 채널톡 하나에서</span>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>센드페이 데이터로 직접 보여드리겠습니다</h2>
+    <p>30분 미팅에서 센드페이 채널 상담 데이터로 CoS 분석과 노트북 리포트를 실제로 시연해 드립니다.</p>
+  </div>
+
+  <footer>채널코퍼레이션 · 채널톡 AI 비즈니스 OS</footer>
+</div>
+</body>
+</html>
